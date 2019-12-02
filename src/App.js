@@ -1,38 +1,33 @@
 import React, { Component } from 'react';
-// import { Component } from 'react';
 import './App.css';
 import Car from './Car/Car'
 
-function App() {
-  const divStyle = {
-    textAlign: 'center'
-  }
-  return (
-    <div style={divStyle}>
-      <h1>Hello World!</h1>
-      <Car name={'Ford'} year={2018}/>
-      <Car name={'Audi'} year={2016}>
-        <p style={{color: 'red'}}>COLOR</p>
-      </Car>
-      <Car name={'Mazda'} year={2010}>
-        <p style={{color: 'green'}}>COLOR</p>
-      </Car>
-    </div>
-  );
-}
+class App extends Component {
 
-// class App extends Component {
-//   render() {
-//     const divStyle = {
-//           textAlign: 'center'
-//         }
-//     return (
-//       <div style={divStyle}>
-//        <h1>Hello World!</h1>
-//        <Car/>
-//      </div>
-//     )
-//   }
-// }
+  state = {
+    cars: [
+      {name: 'Ford', year:2018},
+      {name: 'Audi', year:2016},
+      {name: 'Mazda', year:2010},
+    ],
+    pageTitle: 'React components'
+  }
+
+  render() {
+    const divStyle = {
+      textAlign: 'center'
+    }
+    const cars = this.state.cars
+    return (
+      <div style={divStyle}>
+        <h1>{this.state.pageTitle}</h1>
+        <Car name={cars[0].name} year={cars[0].year}/>
+        <Car name={cars[1].name} year={cars[1].year}/>
+        <Car name={cars[2].name} year={cars[2].year}/>
+      </div>
+    )
+  }
+
+}
 
 export default App;
