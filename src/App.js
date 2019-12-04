@@ -17,7 +17,12 @@ class App extends Component {
     this.setState({
       pageTitle: newTitle
     })
+  }
 
+  hendlerInput = (event) => {
+    this.setState({
+      pageTitle: event.target.value
+    })
   }
 
   render() {
@@ -28,6 +33,8 @@ class App extends Component {
     return (
       <div style={divStyle}>
         <h1>{this.state.pageTitle}</h1>
+
+        <input type='text' onChange={this.hendlerInput}/>
 
         <button onClick={this.changeTitleHandler.bind(this, 'Changed!')}>Change title</button>
 
