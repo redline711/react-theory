@@ -2,16 +2,16 @@ import React from 'react';
 import Radium from 'radium';
 
 const Car = props => {
-  const inputClasses = ['input']
+  const inputClasses = ['input'];
 
   if (props.name !== '') {
-    inputClasses.push('green')
+    inputClasses.push('green');
   } else {
-    inputClasses.push('red')
+    inputClasses.push('red');
   }
 
   if (props.name.length > 4) {
-    inputClasses.push('bold')
+    inputClasses.push('bold');
   }
 
   const style = {
@@ -19,14 +19,16 @@ const Car = props => {
     boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .14)',
     ':hover': {
       border: '1px solid #aaa',
-      boxShadow: '0 4px 15px 0 rgba(0, 0, 0, .25)'
-    }
-  }
+      boxShadow: '0 4px 16px 0 rgba(0, 0, 0, .25)',
+    },
+  };
 
   return (
     <div className="Car" style={style}>
       <h3>Car name: {props.name}</h3>
-      <p>Year: <strong>{props.year}</strong> </p>
+      <p>
+        Year: <strong>{props.year}</strong>{' '}
+      </p>
       <input
         type="text"
         onChange={props.onChangeName}
@@ -35,7 +37,7 @@ const Car = props => {
       />
       <button onClick={props.onDelete}>Delete</button>
     </div>
-  )
-}
+  );
+};
 
-export default Radium(Car)
+export default Radium(Car);
