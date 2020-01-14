@@ -40,7 +40,7 @@ class App extends Component {
 		this.setState({ cars })
 	}
 
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 		console.log('App componentWillMount')
 	}
 
@@ -82,7 +82,9 @@ class App extends Component {
 
 				<hr />
 
-				<button onClick={this.toggleCarsHandler}>Toggle cars</button>
+				<button style={{ marginTop: 20 }} onClick={this.toggleCarsHandler}>
+					Toggle cars
+				</button>
 				<div
 					style={{
 						width: 400,
